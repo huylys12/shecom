@@ -1,17 +1,57 @@
-import React from "react";
 import Navbar from "./Navbar";
+import React from "react";
+import { Breadcrumb, Layout } from "antd";
+const { Header, Content, Footer } = Layout;
 
-const Layout = ({ children }) => {
+const CustomLayout = () => {
   return (
-    <>
-      <div className="flex flex-auto h-screen">
-        <div className="grow">
-          <Navbar />
-          <div className="m-5">{children}</div>
+    <Layout>
+      <Header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1,
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div className="demo-logo" />
+        <Navbar />
+      </Header>
+      <Content
+        style={{
+          padding: "0 48px",
+        }}
+      >
+        <Breadcrumb
+          style={{
+            margin: "16px 0",
+          }}
+        >
+          <Breadcrumb.Item>Home</Breadcrumb.Item>
+          <Breadcrumb.Item>List</Breadcrumb.Item>
+          <Breadcrumb.Item>App</Breadcrumb.Item>
+        </Breadcrumb>
+        <div
+          style={{
+            padding: 24,
+            minHeight: 380,
+            background: "#ffffff",
+            // borderRadius: borderRadiusLG,
+          }}
+        >
+          Content
         </div>
-      </div>
-    </>
+      </Content>
+      <Footer
+        style={{
+          textAlign: "center",
+        }}
+      >
+        Ant Design ©2023 Created by Ant UED
+      </Footer>
+    </Layout>
   );
 };
-
-export default Layout;
+export default CustomLayout;
